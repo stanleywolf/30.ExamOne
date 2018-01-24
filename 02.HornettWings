@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _02.hornetWings
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var wingFlaps = long.Parse(Console.ReadLine());
+            var distance = double.Parse(Console.ReadLine());
+            var endurance = long.Parse(Console.ReadLine());
+            double distanceTraveled = wingFlaps / 1000 * distance;
+            Console.WriteLine($"{distanceTraveled:f2} m.");
+            double timeOfBreaks = wingFlaps / endurance * 5;
+            double timeTraveled = wingFlaps / 100;
+            Console.WriteLine($"{timeOfBreaks + timeTraveled} s.");
+        }
+    }
+}
