@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01.softUniCoffieOrders
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var n = int.Parse(Console.ReadLine());
+
+            decimal totalPrice = 0;
+            for (int i = 0; i < n; i++)
+            {
+                decimal price = ReadOrderAndCalcPrice();
+                totalPrice += price;
+            }
+            Console.WriteLine($"Total: ${totalPrice:f2}");
+        }
+
+         static decimal ReadOrderAndCalcPrice()
+         {
+             decimal pricePerCapsula = decimal.Parse(Console.ReadLine());
+             string dateAsString = Console.ReadLine();
+            DateTime date=DateTime.ParseExact(dateAsString,"d/M/yyyy",null);
+             decimal capsules = decimal.Parse(Console.ReadLine());
+             decimal daysAsMonth = DateTime.DaysInMonth(date.Year, date.Month);
+
+             decimal price = (daysAsMonth * capsules) * pricePerCapsula;
+             Console.WriteLine($"The price for coffee is: ${price:f2}");
+             return price;
+         }
+    }
+}
